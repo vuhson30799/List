@@ -1,0 +1,13 @@
+package LinkedList;
+
+public class Node<E> {
+    Object data;
+    Node<E> next;
+    public Node (Object data) {
+        this.data = data;
+    }
+
+    public Object getData() {
+        return data;
+    }
+}

@@ -11,6 +11,7 @@ public class Test {
         arr.add("loc");
         arr.add("vu");
         arr.clone();
+        arr.add(6,"HOang");
         System.out.println("Array list before: " + arr.toString() + arr.size());
         arr.ensureCapacity(5);
         arr.remove(0);

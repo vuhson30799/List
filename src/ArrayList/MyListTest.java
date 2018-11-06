@@ -8,6 +8,7 @@ public class MyListTest {
         arr.add("Loc");
         arr.add("Vu");
         arr.add(1,"Van");
+        arr.add(6,"Hoang");
         arr.getInfo();
 
         System.out.println("Does this array has Van " + arr.contains("Van"));
