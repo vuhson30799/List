@@ -1,11 +1,13 @@
+/*
 package Stack;
 
+import java.util.Queue;
 import java.util.Stack;
 
 public class Convert {
     public static void main(String[] args) {
         System.out.println(convertBitToDecimal("1111.101"));
-        System.out.println(convertDecToBit(7.625));
+        System.out.println(convertDecToBit(7.025));
     }
 
 
@@ -62,13 +64,33 @@ public class Convert {
             result.append(integerStack.pop());
         }
         result.append('.');
+        Stack<String> reverseDecimalStack = new Stack<>();
         while (!decimalStack.isEmpty()){
-            result.append(decimalStack.pop());
+            reverseDecimalStack.push(decimalStack.pop());
+        }
+        while (!reverseDecimalStack.isEmpty()){
+            result.append(reverseDecimalStack.pop());
         }
         return result.toString();
     }
 
+
     public static String convertDecToHex (double num) {
-        return "";
+        Stack<String> integerPart = new Stack<>();
+        Stack<String> decimalPart = new Stack<>();
+        int intPart = 0;
+        while (num >= 1){
+            intPart ++;
+                num --;
+        }
+        while (intPart != 0){
+            if (intPart % 16 >= 10){
+               integerPart.push((char)(intPart % 16 + 55) + "");
+            }else{
+                integerPart.push((char)(intPart % 16 + 48) + "");
+            }
+        }
     }
+
 }
+*/

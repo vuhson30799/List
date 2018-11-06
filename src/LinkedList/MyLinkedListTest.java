@@ -5,6 +5,7 @@ public class MyLinkedListTest {
         MyLinkedList<String> list = new MyLinkedList<>();
         //ok
         System.out.println("1.Add Son Van Hoang");
+        list.getFirst();
         list.add("Son");
         list.remove("Son");
         list.add("Van");

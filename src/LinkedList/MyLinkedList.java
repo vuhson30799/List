@@ -185,9 +185,15 @@ public class MyLinkedList<E> {
     }
 
     public E getFirst () {
+        if ((head == null) && (tail == null)){
+            return null;
+        }
         return (E)head.data;
     }
     public E getLast () {
+        if ((head == null) && (tail == null)){
+            return null;
+        }
         return (E)tail.data;
     }
 
