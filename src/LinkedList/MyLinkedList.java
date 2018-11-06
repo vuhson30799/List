@@ -127,6 +127,10 @@ public class MyLinkedList<E> {
         int i = 0;
         Node<E> current = head;
         while (i < numNodes){
+            // check for empty list
+            if (head == null) {
+                return false;
+            }
             // Check for null
             if (current == o){
                 return true;
@@ -144,7 +148,9 @@ public class MyLinkedList<E> {
         int i = 0;
         Node<E> current = head;
         while (i < numNodes){
-            if (current.data == o){
+            if ((current == null) && (current == o)){
+                return i;
+            }else if (current.data.equals(o)){
                 return i;
             }
             current = current.next;
