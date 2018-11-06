@@ -1,4 +1,3 @@
-/*
 package Stack;
 
 import java.util.Queue;
@@ -8,6 +7,8 @@ public class Convert {
     public static void main(String[] args) {
         System.out.println(convertBitToDecimal("1111.101"));
         System.out.println(convertDecToBit(7.025));
+        System.out.println(convertDecToHex(18.5));
+        System.out.println(convertHexToDecimal("12.8"));
     }
 
 
@@ -89,8 +90,67 @@ public class Convert {
             }else{
                 integerPart.push((char)(intPart % 16 + 48) + "");
             }
+            intPart /= 16;
         }
+        int doing = 10;
+        while ((doing >0) && num != 0){
+            num *= 16;
+            long roundNum = Math.round(num);
+            if (roundNum >= 10){
+                if (roundNum > num){
+                    decimalPart.push((char)(roundNum - 1 + 55) + "");
+                    num -= --roundNum;
+                }else{
+                    decimalPart.push((char)(roundNum +55) + "");
+                    num -= roundNum;
+                }
+            }else {
+                if (roundNum > num){
+                    decimalPart.push((char)(roundNum - 1 + 48) + "");
+                    num -= --roundNum;
+                }else{
+                    decimalPart.push((char)(roundNum + 48) + "");
+                    num -= roundNum;
+                }
+            }
+            doing--;
+        }
+        Stack<String> reverseDecimalPart = new Stack<>();
+        while (!decimalPart.isEmpty()){
+            reverseDecimalPart.push(decimalPart.pop());
+        }
+        StringBuilder result = new StringBuilder();
+        while (!integerPart.isEmpty()){
+            result.append(integerPart.pop());
+        }
+        result.append(".");
+        while (!reverseDecimalPart.isEmpty()){
+            result.append(reverseDecimalPart.pop());
+        }
+        return result.toString();
     }
 
+    public static double convertHexToDecimal (String string){
+        char[] arr = string.toCharArray();
+        double result = 0;
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == '.'){
+                index = -(arr.length - i - 1);
+                break;
+            }
+        }
+        for (int i = arr.length - 1; i >= 0 ; i--) {
+            if (arr[i] != '.'){
+                if ((int)arr[i] >=65){
+                    result += ((int)(arr[i]) - 55) * Math.pow(16,index);
+                }else {
+                    result += ((int)(arr[i]) - 48) * Math.pow(16,index);
+                }
+                index++;
+            }
+
+        }
+        return result;
+    }
 }
-*/
