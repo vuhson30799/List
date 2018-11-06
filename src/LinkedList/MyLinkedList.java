@@ -7,7 +7,7 @@ public class MyLinkedList<E> {
 
     public void addFirst (E e){
         if ((head == null) && (tail == null)) {
-            head.data = e;
+            head = new Node<>(e);
             tail = head;
         }else {
             Node<E> temp = new Node<>(e);
@@ -18,12 +18,12 @@ public class MyLinkedList<E> {
     }
 
     public void addLast (E e){
-        Node<E> temp = new Node<>(e);
+
         if ((head == null) && (tail == null)) {
-            head.data = e;
+            head = new Node<>(e);
             tail = head;
         }else{
-            tail.next = temp;
+            tail.next = new Node<>(e);
             tail = tail.next;
         }
         numNodes++;
@@ -50,14 +50,24 @@ public class MyLinkedList<E> {
             Node<E> temp = new Node<>(e);
             temp.next = current.next;
             current.next = temp;
+            numNodes++;
         }
-        numNodes++;
     }
 
     public E remove (int index){
         int i = 0;
         Node<E> current = head;
-        if (index < 0 || index > numNodes){
+        if (head == null){
+            System.out.println("Error");
+            return null;
+        }
+        if (head == tail){
+            head = null;
+            tail = null;
+            numNodes --;
+            return (E)current.data;
+        }
+        if (index < 0 || index >= numNodes){
             System.out.println("Error!!");
             return null;
         }
@@ -67,8 +77,8 @@ public class MyLinkedList<E> {
             numNodes--;
             return (E)temp.data;
         }
-        if (index == numNodes){
-            while (i < numNodes - 1){
+        if (index == numNodes - 1){
+            while (i < numNodes - 2){
                 current = current.next;
                 i++;
             }

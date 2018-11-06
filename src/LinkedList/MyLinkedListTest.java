@@ -3,28 +3,33 @@ package LinkedList;
 public class MyLinkedListTest {
     public static void main(String[] args) {
         MyLinkedList<String> list = new MyLinkedList<>();
+        //ok
         System.out.println("1.Add Son Van Hoang");
         list.add("Son");
+        list.remove("Son");
         list.add("Van");
+        list.remove(0);
         list.add("Hoang");
         list.printList();
 
+        //ok
         System.out.println("2. Add first Vu Add last Loc: ");
         list.addFirst("Vu");
         list.addLast("Loc");
         list.printList();
 
-        System.out.println("3. Add Dung at 6 and 3");
+        System.out.println("3. Add Dung at 0 then 6");
+        list.add(0,"Dung");
         list.add(6,"Dung");
-        list.add(3,"Dung");
         list.printList();
 
-        System.out.println("4. Remove obj 3 and 10");
-        list.remove(3);
-        list.remove(10);
+        //ok
+        System.out.println("4. Remove obj 0 then 4");
+        list.remove(0);
+        list.remove(4);
         list.printList();
 
-        System.out.println("7. Remove obj Son and Mam");
+        System.out.println("7. Remove obj Son then Mam");
         System.out.println("Remove = " + list.remove("Son"));
         System.out.println("Remove = " + list.remove("Mam"));
         list.printList();
