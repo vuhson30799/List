@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
@@ -29,5 +27,10 @@ public class Test {
         linkedList.add("Vu");
         linkedList.clone();
         System.out.println("Element at third: " + linkedList.get(3));
+
+        Stack<String> strings = new Stack<>();
+        strings.push("Son");
+
+
     }
 }
