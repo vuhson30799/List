@@ -209,6 +209,9 @@ public class MyLinkedList<E> {
     public void printList (){
         int i = 0;
         Node<E> current = head;
+        if (current == null){
+            System.out.println("This array is empty");
+        }
         while (i < numNodes){
             System.out.print(current.data + " ");
             current = current.next;
