@@ -100,6 +100,7 @@ public class MyLinkedList<E> {
         boolean check = false;
         int i = 0;
         Node<E> current = head;
+        if (head == null) return check;
         while (i< numNodes){
             if (current.data.equals(e)){
                 remove(i);
@@ -132,7 +133,7 @@ public class MyLinkedList<E> {
                 return false;
             }
             // Check for null
-            if (current == o){
+            if (current.data == o){
                 return true;
             }
             if (current.data.equals(o)){
@@ -147,8 +148,9 @@ public class MyLinkedList<E> {
     public int indexOf (E o){
         int i = 0;
         Node<E> current = head;
+        if (current == null) return -1;
         while (i < numNodes){
-            if ((current == null) && (current == o)){
+            if (current.data == o){
                 return i;
             }else if (current.data.equals(o)){
                 return i;
@@ -177,6 +179,7 @@ public class MyLinkedList<E> {
     public E get(int index) {
         int i = 0;
         Node<E> current = head;
+        if (current == null) return null;
         while (i < numNodes){
             current = current.next;
             i++;
