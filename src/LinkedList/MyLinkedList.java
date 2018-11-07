@@ -31,10 +31,10 @@ public class MyLinkedList<E> {
 
     public void add (int index, E e){
         if (index < 0 || index > numNodes){
-            System.out.println("Error");
+            System.out.println("Error index out of Array");
             return;
         }else if (head == null && index != 0){
-                System.out.println("Error");
+                System.out.println("Error array is empty");
                 return;
         }else if (index == 0){
             addFirst(e);
@@ -58,7 +58,7 @@ public class MyLinkedList<E> {
         int i = 0;
         Node<E> current = head;
         if (head == null){
-            System.out.println("Error");
+            System.out.println("Error array is empty");
             return null;
         }
         if (head == tail){
@@ -68,7 +68,7 @@ public class MyLinkedList<E> {
             return (E)current.data;
         }
         if (index < 0 || index >= numNodes){
-            System.out.println("Error!!");
+            System.out.println("Error index out of array");
             return null;
         }
         if (index == 0){
@@ -203,6 +203,7 @@ public class MyLinkedList<E> {
     public void clear(){
         head = null;
         tail = null;
+        numNodes = 0;
     }
 
     public void printList (){
