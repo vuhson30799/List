@@ -32,9 +32,13 @@ public class MyQueue<E> {
             if (head == capacity - 1){
                 head = 0;
                 currentSize --;
-            }else{
-                head++;
-                currentSize--;
+            }else if (head == tail) {
+                head = 0;
+                tail = 0;
+                currentSize --;
+            }else {
+                    head++;
+                    currentSize--;
             }
         }
     }
