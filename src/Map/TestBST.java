@@ -19,5 +19,8 @@ public class TestBST {
         System.out.println("PostOrder (sorted): ");
         tree.postorder(tree.root);
         System.out.println("The number of nodes is: " + tree.getSize());
+
+        System.out.println("Is George and Son exist in tree?" + tree.search("George") + tree.search("Son"));
+
     }
 }

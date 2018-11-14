@@ -82,14 +82,31 @@ public class BST<E extends Comparable<E>> implements AbstractTree<E> {
                     current = current.right;
                 }
             }
+            if (current == root) {
+                root = null;
+                size = 0;
+                return true;
+            }
             if (current.left == null && current.right != null){
-                current = current.right;
+                if (parent.left == current) {
+                    parent.left = current.right;
+                }else {
+                    parent.left = current.right;
+                }
             }else if (current.left != null && current.right == null) {
-                current = current.left;
+                if (parent.right == current) {
+                    parent.right = current.left;
+                }else {
+                    parent.right = current.left;
+                }
             }else if (current.left == null && current.right == null) {
-                current = null;
+                if (parent.left == current){
+                    parent.left = null;
+                }else {
+                    parent.right = null;
+                }
             }else {
-                TreeNode<E> max = current.right;
+
 
             }
         }
