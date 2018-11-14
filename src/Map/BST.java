@@ -67,13 +67,9 @@ public class BST<E extends Comparable<E>> implements AbstractTree<E> {
 
     @Override
     public boolean delete(E e) {
-        if (root == null) {
-            System.out.println("This tree is empty");
-            return false;
-        }else {
             TreeNode<E> parent = null;
             TreeNode<E> current = root;
-            while (current.element.compareTo(e) != 0){
+            while (current != null && current.element.compareTo(e) != 0){
                 if (e.compareTo(current.element) < 0){
                     parent = current;
                     current = current.left;
@@ -82,35 +78,35 @@ public class BST<E extends Comparable<E>> implements AbstractTree<E> {
                     current = current.right;
                 }
             }
-            if (current == root) {
-                root = null;
-                size = 0;
-                return true;
+            if (current == null) {
+                return false;
             }
-            if (current.left == null && current.right != null){
-                if (parent.left == current) {
+            if (current.left == null){
+                if (parent.left == current.element) {
                     parent.left = current.right;
                 }else {
-                    parent.left = current.right;
-                }
-            }else if (current.left != null && current.right == null) {
-                if (parent.right == current) {
-                    parent.right = current.left;
-                }else {
-                    parent.right = current.left;
-                }
-            }else if (current.left == null && current.right == null) {
-                if (parent.left == current){
-                    parent.left = null;
-                }else {
-                    parent.right = null;
+                    parent.right = current.right;
                 }
             }else {
-
-
+                //find the max value in left tree
+                TreeNode<E> rightMost = current.left;
+                TreeNode<E> parentRightMost = current;
+                while (rightMost.right != null){
+                    parentRightMost = rightMost;
+                    rightMost = rightMost.right;
+                }
+                // assign the rightMost value to current and delete the rightMost out of tree
+                current.element = rightMost.element;
+                if (rightMost.left != null){
+                    parentRightMost.right = rightMost.left;
+                }else if (parentRightMost != current){
+                    parentRightMost.right = null;
+                }else {
+                    parentRightMost.left = null;
+                }
             }
-        }
-        return false;
+        size--;
+        return true;
     }
 
     @Override

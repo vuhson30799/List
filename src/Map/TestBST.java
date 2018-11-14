@@ -22,5 +22,10 @@ public class TestBST {
 
         System.out.println("Is George and Son exist in tree?" + tree.search("George") + tree.search("Son"));
 
+        System.out.println("Delete Micheal: " + tree.delete("Michael"));
+        System.out.println("Delete Son: " + tree.delete("Son"));
+        System.out.println("Inorder (sorted): ");
+        tree.inorder(tree.root);
+
     }
 }
