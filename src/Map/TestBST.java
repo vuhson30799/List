@@ -3,7 +3,7 @@ package Map;
 public class TestBST {
     public static void main(String[] args) {
         //create a BST
-        BST<String> tree = new BST<>();
+      /*  BST<String> tree = new BST<>();
         tree.insert("George");
         tree.insert("Michael");
         tree.insert("Tom");
@@ -25,7 +25,13 @@ public class TestBST {
         System.out.println("Delete Micheal: " + tree.delete("Michael"));
         System.out.println("Delete Son: " + tree.delete("Son"));
         System.out.println("Inorder (sorted): ");
-        tree.inorder(tree.root);
-
+        tree.inorder(tree.root);*/
+        BST<Integer> tree1 = new BST<>();
+        tree1. insert(8);
+        tree1. insert(5);
+        tree1. insert(9);
+        tree1. insert(1);
+        tree1. insert(7);
+        tree1.breadthFirstOrder();
     }
 }

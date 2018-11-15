@@ -1,5 +1,9 @@
 package Map;
 
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BST<E extends Comparable<E>> implements AbstractTree<E> {
     TreeNode<E> root;
     int size;
@@ -184,5 +188,24 @@ public class BST<E extends Comparable<E>> implements AbstractTree<E> {
     public void clear() {
         root = null;
         size = 0;
+    }
+
+    public void breadthFirstOrder () {
+        LinkedList<TreeNode<E>> arr = new LinkedList<>();
+        arr.add(root);
+        int i = 0;
+        while (arr.size() != size){
+            if (arr.get(i).left != null){
+                arr.add(arr.get(i).left);
+            }
+            if (arr.get(i).right != null){
+                arr.add(arr.get(i).right);
+            }
+            i++;
+        }
+        for (TreeNode<E> x :
+                arr) {
+            System.out.print(x.element + " ");
+        }
     }
 }
