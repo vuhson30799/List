@@ -2,26 +2,17 @@ package Sort;
 
 public class Sort {
     public static void main(String[] args) {
-        int[] unsort = {42,11,13,45,49};
-        /*int[] sort1 = selectionSort(unsort);
         System.out.println("SelectionSort: ");
-        for (int x :
-                sort1) {
-            System.out.print(x + " ");
-        }*/
+        int[] unsort1 = {42,11,13,45,49};
+        int[] sort1 = selectionSort(unsort1);
 
-       /* int[] sort2 = bubbleSort(unsort);
         System.out.println("BubbleSort: ");
-        for (int x :
-                sort2) {
-            System.out.println(x + " ");
-        }*/
+        int[] unsort2 = {42,46,11,13,12};
+        int[] sort2 = bubbleSort(unsort2);
 
-       int[] sort3 = insertionSort(unsort);
-        for (int x :
-                unsort) {
-            System.out.print(x + " ");
-        }
+        System.out.println("InserttionSort: ");
+        int[] unsort3 = {42,47,43,45,44,15,14,16};
+        int[] sort3 = insertionSort(unsort3);
     }
     public static int[] selectionSort (int[] unsort){
         int indexOfMinElement = 0, temp = 0;
@@ -37,6 +28,12 @@ public class Sort {
                 unsort[indexOfMinElement] = unsort[i];
                 unsort[i] = temp;
             }
+            System.out.println(i + ".");
+            for (int x :
+                    unsort) {
+                System.out.print(x + " ");
+            }
+            System.out.println();
         }
         return unsort;
     }
@@ -50,6 +47,12 @@ public class Sort {
                 j--;
             }
             unsort[j + 1] = temp;
+            System.out.println(i + ".");
+            for (int x :
+                    unsort) {
+                System.out.print(x + " ");
+            }
+            System.out.println();
         }
         return unsort;
     }
@@ -59,7 +62,7 @@ public class Sort {
         boolean stop;
         for (int i = 0; i < unsort.length - 1; i++) {
             stop = true;
-            for (int j = i; j < unsort.length - 1; j++) {
+            for (int j = 0; j < unsort.length - 1 - i; j++) {
                 if (unsort[j] > unsort[j + 1]){
                     temp = unsort[j + 1];
                     unsort[j + 1] = unsort[j];
@@ -67,6 +70,12 @@ public class Sort {
                     stop = false;
                 }
             }
+            System.out.println(i + ".");
+            for (int x :
+                    unsort) {
+                System.out.print(x + " ");
+            }
+            System.out.println();
             if (stop) break;
         }
         return unsort;
