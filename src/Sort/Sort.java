@@ -68,7 +68,7 @@ public class Sort {
                     unsort[j + 1] = unsort[j];
                     unsort[j] = temp;
                     stop = false;
-                }
+                }//
             }
             System.out.println(i + ".");
             for (int x :
