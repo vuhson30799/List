@@ -1,13 +1,12 @@
 package Sort;
 
-
-import javax.print.DocFlavor;
 import java.util.LinkedList;
 
 public class SmallestWindowString {
     public static void main(String[] args) {
         String string = "welcome to w3resource";
         String subString = "tower";
+
 
         LinkedList<Integer> indexOfSubString = new LinkedList<>();
 
